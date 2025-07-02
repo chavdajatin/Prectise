@@ -1,0 +1,49 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #0b3d91;
+  color: white;
+  padding: 1em 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5em;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.hero {
+  background: #f4f4f4;
+  text-align: center;
+  padding: 4em 2em;
+}
+
+.features {
+  display: flex;
+  justify-content: space-around;
+  padding: 2em;
+}
+
+.feature {
+  width: 30%;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 1em;
+  background: #222;
+  color: white;
+}
