@@ -24,11 +24,14 @@ jobs:
   deploy-files:
     name: Deploy Static Files
     runs-on: self-hosted
-    needs: setup-nginx  # Runs only after 'setup-nginx' is successful
+    needs: setup-nginx  # Only runs after Nginx setup is successful
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+
+      - name: List Repository Files (for debugging)
+        run: ls -la
 
       - name: Copy HTML and CSS to Nginx Directory
         run: |
