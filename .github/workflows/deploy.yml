@@ -24,7 +24,7 @@ jobs:
   deploy-files:
     name: Deploy Static Files
     runs-on: self-hosted
-    needs: setup-nginx  # Only runs after Nginx setup is successful
+    needs: setup-nginx  # Runs only after Nginx setup is successful
 
     steps:
       - name: Checkout Code
@@ -37,5 +37,5 @@ jobs:
         run: |
           sudo rm -rf /var/www/html/*
           sudo cp index.html /var/www/html/
-          sudo cp Style.css /var/www/html/
+          sudo cp styles.css /var/www/html/
           sudo systemctl reload nginx
