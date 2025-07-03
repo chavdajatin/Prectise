@@ -1,0 +1,38 @@
+name: Deploy Static Site with Nginx
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  setup-nginx:
+    name: Setup Nginx
+    runs-on: self-hosted
+
+    steps:
+      - name: Install Nginx
+        run: |
+          sudo apt update
+          sudo apt install -y nginx
+
+      - name: Start and Enable Nginx
+        run: |
+          sudo systemctl enable nginx
+          sudo systemctl start nginx
+
+  deploy-files:
+    name: Deploy Static Files
+    runs-on: self-hosted
+    needs: setup-nginx  # Runs only after 'setup-nginx' is successful
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Copy HTML and CSS to Nginx Directory
+        run: |
+          sudo rm -rf /var/www/html/*
+          sudo cp index.html /var/www/html/
+          sudo cp style.css /var/www/html/
+          sudo systemctl reload nginx
