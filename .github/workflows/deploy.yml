@@ -37,5 +37,5 @@ jobs:
         run: |
           sudo rm -rf /var/www/html/*
           sudo cp index.html /var/www/html/
-          sudo cp style.css /var/www/html/
+          sudo cp Style.css /var/www/html/
           sudo systemctl reload nginx
