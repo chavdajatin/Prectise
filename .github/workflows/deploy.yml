@@ -39,3 +39,15 @@ jobs:
           sudo cp index.html /var/www/html/
           sudo cp styles.css /var/www/html/
           sudo systemctl reload nginx
+
+    
+    steps:
+      - name: Install Docker
+        run: |
+          sudo apt update
+          sudo apt install docker.io -y
+
+      - name: Start and Enable Docker
+        run: |
+          sudo systemctl enable Docker
+          sudo systemctl start Docker
