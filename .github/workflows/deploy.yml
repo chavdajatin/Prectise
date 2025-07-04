@@ -40,10 +40,16 @@ jobs:
           sudo cp styles.css /var/www/html/
           sudo systemctl reload nginx
 
+  install-docker:
+    name: Install and Start Docker
+    runs-on: self-hosted
+    needs: deploy-files
+
+    steps:
       - name: Install Docker
         run: |
           sudo apt update
-          sudo apt install docker.io -y
+          sudo apt install -y docker.io
 
       - name: Start and Enable Docker
         run: |
