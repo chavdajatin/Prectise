@@ -55,3 +55,15 @@ jobs:
         run: |
           sudo systemctl enable docker
           sudo systemctl start docker
+          
+  install-maven:
+   name: Install Maven
+   runs-on: self-hosted
+   needs: deploy-files
+
+   steps:
+    - name: Update APT and Install Maven
+      run: |
+        sudo apt update
+        sudo apt install -y maven
+
