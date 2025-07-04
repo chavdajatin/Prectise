@@ -24,7 +24,7 @@ jobs:
   deploy-files:
     name: Deploy Static Files
     runs-on: self-hosted
-    needs: setup-nginx  # Runs only after Nginx setup is successful
+    needs: setup-nginx
 
     steps:
       - name: Checkout Code
@@ -40,8 +40,6 @@ jobs:
           sudo cp styles.css /var/www/html/
           sudo systemctl reload nginx
 
-    
-    steps:
       - name: Install Docker
         run: |
           sudo apt update
@@ -49,5 +47,5 @@ jobs:
 
       - name: Start and Enable Docker
         run: |
-          sudo systemctl enable Docker
-          sudo systemctl start Docker
+          sudo systemctl enable docker
+          sudo systemctl start docker
